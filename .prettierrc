@@ -1,5 +1,4 @@
 {
-	"plugins": ["@prettier/plugin-pug"],
 	"arrowParens": "always",
 	"bracketSpacing": true,
 	"endOfLine": "lf",
@@ -17,5 +16,7 @@
 	"tabWidth": 2,
 	"trailingComma": "es5",
 	"useTabs": true,
-	"vueIndentScriptAndStyle": false
+	"vueIndentScriptAndStyle": false,
+	"plugins": ["@prettier/plugin-pug", "prettier-plugin-tailwindcss"],
+	"tailwindConfig": "./tailwind.config.js"
 }
