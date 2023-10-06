@@ -3,11 +3,11 @@ const asyncHandler = require('express-async-handler');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
-exports.user_signup_get = asyncHandler(async (req, res, next) => {
+exports.signup_get = asyncHandler(async (req, res, next) => {
 	res.render('signup', { title: 'Members Only | Sign Up' });
 });
 
-exports.user_signup_post = [
+exports.signup_post = [
 	body('first_name')
 		.trim()
 		.isLength({ min: 1 })
