@@ -6,6 +6,8 @@ const userController = require('../controllers/userController');
 router.get('/', function (req, res, next) {
 	res.render('index', { title: 'Members Only | Home' });
 });
+
 router.get('/signup', userController.user_signup_get);
+router.post('/signup', userController.user_signup_post);
 
 module.exports = router;
