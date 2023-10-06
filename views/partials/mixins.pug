@@ -1,0 +1,11 @@
+mixin form-control(label,path)
+	label.flex.flex-col.gap-2.font-bold(for!=attributes.for, class!=attributes.class) #{ label }
+		input.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+			id!=attributes.id,
+			type!=attributes.type,
+			required,
+			name!=attributes.name,
+			value!=attributes.value
+		)
+		if errors && errors.find((err) => err.path===path)
+			i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path===path).msg } 

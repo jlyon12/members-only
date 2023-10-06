@@ -1,4 +1,5 @@
 extends layout
+include ../partials/mixins
 
 block content
 	main.grid.flex-1.place-content-center
@@ -10,49 +11,36 @@ block content
 			h2.text-2xl.font-bold Sign Up
 			hr
 			fieldset.grid.gap-4(class='md:grid-cols-2')
-				label.flex.flex-col.gap-2.font-bold(for='first_name') First Name
-					input#first_name.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-						type='text',
-						required,
-						name='first_name',
-						value=user && user.first_name
-					)
-					if errors && errors.find((err) => err.path==="first_name")
-						i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path==="first_name").msg }
-				label.flex.flex-col.gap-2.font-bold(for='last_name') Last Name
-					input#last_name.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-						type='text',
-						required,
-						name='last_name',
-						value=user && user.last_name
-					)
-					if errors && errors.find((err) => err.path==="last_name")
-						i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path==="last_name").msg }
-				label.flex.flex-col.gap-2.font-bold(for='email', class='md:col-span-2') Email
-					input#email.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-						type='email',
-						required,
-						name='email',
-						value=user && user.email
-					)
-					if errors && errors.find((err) => err.path==="email")
-						i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path==="email").msg }
-				label.flex.flex-col.gap-2.font-bold(for='password') Password
-					input#password.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-						type='password',
-						required,
-						name='password'
-					)
-					if errors && errors.find((err) => err.path==="password")
-						i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path==="password").msg }
-				label.flex.flex-col.gap-2.font-bold(for='password_confirm') Confirm Password
-					input#password_confirm.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-						type='password',
-						required,
-						name='password_confirm'
-					)
-					if errors && errors.find((err) => err.path==="password_confirm")
-						i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path==="password_confirm").msg }
+				+form-control('First Name',"first_name")#first_name(
+					for='first_name',
+					name='first_name',
+					value=user && user.first_name,
+					type='text'
+				)
+				+form-control('Last Name',"last_name")#last_name(
+					for='last_name',
+					name='last_name',
+					value=user && user.last_name,
+					type='text'
+				)
+				+form-control('Email',"email")#email(
+					for='email',
+					name='email',
+					value=user && user.email,
+					type='email',
+					class='md:col-span-2'
+				)
+				+form-control('Password',"password")#password(
+					for='password',
+					name='password',
+					type='password'
+				)
+				+form-control('Confirm Password',"password_confirm")#password_confirm(
+					for='password_confirm',
+					name='password_confirm',
+					type='password'
+				)
+
 			if errors
 				i.mx-auto.text-rose-500 Unable to create account
 			button.mx-auto.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(

@@ -1667,11 +1667,11 @@ video {
 .font-bold {
 	font-weight: 700;
 }
-.font-normal {
-	font-weight: 400;
-}
 .font-light {
 	font-weight: 300;
+}
+.font-normal {
+	font-weight: 400;
 }
 .uppercase {
 	text-transform: uppercase;
@@ -2184,10 +2184,6 @@ video {
 @media (min-width: 768px) {
 	.md\:col-span-2 {
 		grid-column: span 2 / span 2;
-	}
-
-	.md\:max-w-lg {
-		max-width: 32rem;
 	}
 
 	.md\:max-w-md {
