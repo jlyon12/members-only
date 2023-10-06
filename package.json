@@ -11,8 +11,14 @@
 		"format": "npx prettier . --check --plugin=@prettier/plugin-pug --plugin=prettier-plugin-tailwindcss",
 		"format:fix": "npx prettier . --write --plugin=@prettier/plugin-pug --plugin=prettier-plugin-tailwindcss",
 		"tailwind": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css",
-		"tailwind:watch": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css --watch"
+		"tailwind:watch": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css --watch",
+		"precommit-msg": "echo 'Pre-commit checks...' && exit 0"
 	},
+	"pre-commit": [
+		"precommit-msg",
+		"lint",
+		"format"
+	],
 	"dependencies": {
 		"autoprefixer": "^10.4.16",
 		"cookie-parser": "~1.4.4",
@@ -35,6 +41,7 @@
 		"eslint-plugin-prettier": "^5.0.0",
 		"eslint-plugin-promise": "^6.1.1",
 		"nodemon": "^3.0.1",
+		"pre-commit": "^1.2.2",
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.5"
 	}
