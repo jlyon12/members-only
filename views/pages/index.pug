@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	main.grid.flex-1.place-content-center.gap-8.text-center
+		h2.text-2xl.font-bold Club Rules
+		hr
+		.grid.gap-4
+			p.font-bold Anyone
+				span.block.text-sm.font-normal Can view messages
+			p.font-bold Users
+				span.block.text-sm.font-normal Can post messages
+			p.font-bold Club Members
+				span.block.text-sm.font-normal Can view message details
+		hr
+		a.mx-auto.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(
+			class='hover:bg-zinc-300 hover:font-semibold focus:bg-zinc-300 focus:font-semibold active:bg-zinc-300 active:font-semibold'
+		)(
+			href='/messages'
+		) View Messages
