@@ -636,6 +636,12 @@ video {
 .m-7 {
 	margin: 1.75rem;
 }
+.m-4 {
+	margin: 1rem;
+}
+.m-8 {
+	margin: 2rem;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1515,6 +1521,22 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgb(15 23 42 / var(--tw-bg-opacity));
 }
+.bg-sky-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgb(125 211 252 / var(--tw-bg-opacity));
+}
+.bg-white {
+	--tw-bg-opacity: 1;
+	background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-zinc-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+}
+.bg-zinc-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgb(82 82 91 / var(--tw-bg-opacity));
+}
 .decoration-slice {
 	-webkit-box-decoration-break: slice;
 	box-decoration-break: slice;
@@ -1603,6 +1625,9 @@ video {
 .p-1 {
 	padding: 0.25rem;
 }
+.p-4 {
+	padding: 1rem;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1668,6 +1693,14 @@ video {
 .text-sm {
 	font-size: 0.875rem;
 	line-height: 1.25rem;
+}
+.text-xl {
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+.text-lg {
+	font-size: 1.125rem;
+	line-height: 1.75rem;
 }
 .font-bold {
 	font-weight: 700;
@@ -2187,6 +2220,11 @@ video {
 @media (min-width: 640px) {
 	.sm\:underline {
 		text-decoration-line: underline;
+	}
+}
+@media (min-width: 768px) {
+	.md\:grid-cols-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 @media (prefers-color-scheme: dark) {

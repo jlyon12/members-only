@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	main.grid.flex-1.place-content-center
+		form.m-8.grid.gap-8.rounded.border.bg-zinc-50.p-4.text-lg.shadow
+			h2.text-2xl.font-bold Sign Up
+			hr
+			fieldset.grid.gap-4(class='md:grid-cols-2')
+				label.grid.gap-2.font-bold(for='first_name') First Name
+					input#first_name.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+						type='text',
+						required,
+						name='first_name'
+					)
+				label.grid.gap-2.font-bold(for='last_name') Last Name
+					input#last_name.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+						type='text',
+						required,
+						name='last_name'
+					)
+				label.grid.gap-2.font-bold(for='email') Email
+					input#email.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+						type='email',
+						required,
+						name='email'
+					)
+				label.grid.gap-2.font-bold(for='password') Password
+					input#password.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+						type='password',
+						required,
+						name='password'
+					)
+				label.grid.gap-2.font-bold(for='password_confirm') Confirm Password
+					input#password_confirm.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+						type='password',
+						required,
+						name='password_confirm'
+					)
+			button.mx-auto.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(
+				class='hover:bg-zinc-300 hover:font-semibold focus:bg-zinc-300 focus:font-semibold active:bg-zinc-300 active:font-semibold'
+			) Create Account
