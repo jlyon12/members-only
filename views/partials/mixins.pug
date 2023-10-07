@@ -1,5 +1,15 @@
 mixin form-control(label,path)
 	label.flex.flex-col.gap-2.font-bold(for!=attributes.for, class!=attributes.class) #{ label }
+	if (attributes.type==='textarea')
+		textarea.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+			id!=attributes.id,
+			required,
+			name!=attributes.name,
+			spellcheck,
+			cols=30,
+			rows=10
+		) 
+	else
 		input.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
 			id!=attributes.id,
 			type!=attributes.type,

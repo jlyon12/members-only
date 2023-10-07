@@ -1,0 +1,29 @@
+extends layout
+include ../partials/mixins
+
+block content
+	main.grid.flex-1.place-content-center
+		form.m-8.grid.gap-8.rounded.border.bg-zinc-50.p-4.text-lg.shadow(
+			action='/login',
+			method='POST',
+			class='sm:max-w-sm md:max-w-md lg:max-w-xl'
+		)
+			h2.text-2xl.font-bold New Message
+			hr
+			fieldset.grid.gap-4
+				+form-control('Title',"title")#title(
+					for='title',
+					name='title',
+					type='title'
+				)
+				+form-control('Content',"content")#content(
+					for='content',
+					name='content',
+					type='textarea'
+				)
+
+			if errors
+				i.mx-auto.text-rose-500 Unable to post message
+			button.mx-auto.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(
+				class='hover:bg-zinc-300 hover:font-semibold focus:bg-zinc-300 focus:font-semibold active:bg-zinc-300 active:font-semibold'
+			) Post
