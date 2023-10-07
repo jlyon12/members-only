@@ -21,7 +21,7 @@ block content
 								href=msg.url + 'delete',
 								class='hover:bg-rose-600 hover:text-zinc-50'
 							) Delete
-						if currentUser && currentUser.is_member
+						if currentUser && (currentUser.is_member || currentUser.is_admin)
 							.w-full
 								p.col-start-2.text-right.italic --#{ msg.sender.full_name }
 								p.col-start-2.text-right.text-sm.font-light.italic #{ msg.timestamp_formatted }
