@@ -17,6 +17,13 @@ exports.checkAuthenticated = (req, res, next) => {
 	res.redirect('/login');
 };
 
+exports.checkIsAdmin = asyncHandler(async (req, res, next) => {
+	if (req.user.is_admin) {
+		return next();
+	}
+	res.redirect('/');
+});
+
 exports.logout_get = asyncHandler(async (req, res, next) => {
 	req.logout((err) => {
 		if (err) {

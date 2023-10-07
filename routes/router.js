@@ -52,4 +52,17 @@ router.post(
 	messageController.create_post
 );
 
+router.get(
+	'/message/:id/delete',
+	authController.checkAuthenticated,
+	authController.checkIsAdmin,
+	messageController.delete_get
+);
+router.post(
+	'/message/:id/delete',
+	authController.checkAuthenticated,
+	authController.checkIsAdmin,
+	messageController.delete_post
+);
+
 module.exports = router;

@@ -12,10 +12,19 @@ block content
 			each msg in messages
 				.grid.w-full.max-w-lg.gap-1.rounded.bg-zinc-100.p-4.shadow-md
 					h2.font-bold #{ msg.title }
+
 					p.text-sm #{ msg.content }
 					hr
-					if currentUser && currentUser.is_member
-						p.text-right.italic --#{ msg.sender.full_name }
-						p.text-right.text-sm.font-light.italic #{ msg.timestamp_formatted }
-					else
-						p.text-right.text-sm.text-rose-400 Message details are hidden for non club members.
+					.flex.items-end.justify-between
+						if currentUser && currentUser.is_admin
+							a.inline-flex.h-fit.w-fit.rounded.bg-zinc-200.px-2.px-2.font-semibold.text-rose-500(
+								href=msg.url + 'delete',
+								class='hover:bg-rose-600 hover:text-zinc-50'
+							) Delete
+						if currentUser && currentUser.is_member
+							.w-full
+								p.col-start-2.text-right.italic --#{ msg.sender.full_name }
+								p.col-start-2.text-right.text-sm.font-light.italic #{ msg.timestamp_formatted }
+
+						else
+							p.w-full.text-right.text-sm.text-rose-400 Message details are hidden for non club members.

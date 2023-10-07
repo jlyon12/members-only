@@ -51,3 +51,17 @@ exports.message_list_get = asyncHandler(async (req, res, next) => {
 		messages,
 	});
 });
+
+exports.delete_get = asyncHandler(async (req, res, next) => {
+	const message = await Message.findById(req.params.id);
+
+	res.render('message_delete', {
+		title: 'Members Only | Delete',
+		message,
+	});
+});
+
+exports.delete_post = asyncHandler(async (req, res, next) => {
+	await Message.findByIdAndDelete(req.params.id).exec();
+	res.redirect('/messages');
+});
