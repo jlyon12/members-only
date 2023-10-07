@@ -4,13 +4,37 @@ html
 	head
 		title= title
 		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(defer, src='/javascripts/profile_menu.js') 
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 	body.flex.min-h-screen.flex-col.bg-zinc-50.text-slate-900
 		header.flex.h-24.items-center.justify-between.bg-zinc-100.px-4.shadow-md
 			a.text-2xl.font-bold(href='/') Members Only
 
 			if currentUser
-				+nav-link("/logout","Log Out")
+				.relative
+					button#profileToggle.inline-flex.items-center.gap-2.rounded-full
+						p(class='hover:underline') Hi, #{ currentUser.first_name }
+						.flex.overflow-hidden.rounded-full
+							img.aspect-square.h-full.w-full(src='/images/profile_icon.svg', alt='')
+					#profileDropdown.right-0.mt-2.hidden.rounded-md.bg-zinc-200.shadow-lg(
+						class='top-[100%]'
+					)
+						.grid.gap-1.p-4.text-right
+							p.text-sm.font-bold #{ currentUser.full_name }
+							p.text-sm.font-light #{ currentUser.email }
+							if currentUser.is_member
+								p.text-sm.text-green-600 Club Member
+							else
+								p.text-sm.text-orange-500 Not a member
+
+						ul.mb-4.flex.w-60.flex-col.gap-1.px-2
+							li.block.rounded.py-2.text-right(class='hover:bg-zinc-300 hover:font-semibold')
+								a.px-2(href='/message/create') New Message
+							if !currentUser.is_member
+								li.block.rounded.py-2.text-right(class='hover:bg-zinc-300 hover:font-semibold')
+									a.px-2(href='/member/request') Upgrade Membership
+							li.block.rounded.py-2.text-right(class='hover:bg-zinc-300 hover:font-semibold')
+								a.px-2(href='/logout') Logout
 			else
 				.flex.items-center.gap-4
 					+nav-link("/signup","Sign Up")
