@@ -28,9 +28,7 @@ router.post(
 	userController.upgrade_post
 );
 
-router.get('/messages', function (req, res, next) {
-	res.send('Messages not available');
-});
+router.get('/messages', messageController.message_list_get);
 
 router.get(
 	'/message/create',

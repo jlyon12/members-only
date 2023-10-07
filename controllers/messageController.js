@@ -41,3 +41,13 @@ exports.create_post = [
 		}
 	}),
 ];
+exports.message_list_get = asyncHandler(async (req, res, next) => {
+	const messages = await Message.find({})
+		.populate('sender')
+		.sort({ timestamp: -1 })
+		.exec();
+	res.render('message_list', {
+		title: 'Members Only | Messages',
+		messages,
+	});
+});

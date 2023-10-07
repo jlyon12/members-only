@@ -800,11 +800,26 @@ video {
 .w-60 {
 	width: 15rem;
 }
+.min-w-full {
+	min-width: 100%;
+}
+.min-w-0 {
+	min-width: 0px;
+}
+.max-w-sm {
+	max-width: 24rem;
+}
+.max-w-lg {
+	max-width: 32rem;
+}
 .flex-1 {
 	flex: 1 1 0%;
 }
 .flex-shrink {
 	flex-shrink: 1;
+}
+.flex-shrink-0 {
+	flex-shrink: 0;
 }
 .shrink {
 	flex-shrink: 1;
@@ -1675,6 +1690,9 @@ video {
 .p-2 {
 	padding: 0.5rem;
 }
+.p-8 {
+	padding: 2rem;
+}
 .px-2 {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
@@ -1694,6 +1712,10 @@ video {
 .py-4 {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+}
+.px-8 {
+	padding-left: 2rem;
+	padding-right: 2rem;
 }
 .text-left {
 	text-align: left;
@@ -1865,6 +1887,10 @@ video {
 .text-orange-500 {
 	--tw-text-opacity: 1;
 	color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+.text-rose-400 {
+	--tw-text-opacity: 1;
+	color: rgb(251 113 133 / var(--tw-text-opacity));
 }
 .underline {
 	text-decoration-line: underline;
