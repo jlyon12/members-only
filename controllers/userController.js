@@ -100,3 +100,29 @@ exports.upgrade_post = [
 		}
 	}),
 ];
+
+exports.admin_get = asyncHandler(async (req, res, next) => {
+	res.render('upgrade_admin', { title: 'Members Only | Admin' });
+});
+
+exports.admin_post = [
+	body('password')
+		.trim()
+		.escape()
+		.matches(process.env.ADMIN_KEY)
+		.withMessage('Invalid secret key'),
+	asyncHandler(async (req, res, next) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			res.render('upgrade_admin', {
+				title: 'Members Only | Admin',
+				errors: errors.array(),
+			});
+		} else {
+			const user = await User.findById(req.user.id);
+			user.is_admin = true;
+			user.save();
+			res.redirect('/');
+		}
+	}),
+];

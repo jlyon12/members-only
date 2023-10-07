@@ -28,6 +28,17 @@ router.post(
 	userController.upgrade_post
 );
 
+router.get(
+	'/admin/request',
+	authController.checkAuthenticated,
+	userController.admin_get
+);
+router.post(
+	'/admin/request',
+	authController.checkAuthenticated,
+	userController.admin_post
+);
+
 router.get('/messages', messageController.message_list_get);
 
 router.get(
