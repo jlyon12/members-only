@@ -1,22 +1,24 @@
-mixin form-control(label,path)
+mixin form-control(label,path,value)
 	label.flex.flex-col.gap-2.font-bold(for!=attributes.for, class!=attributes.class) #{ label }
-	if (attributes.type==='textarea')
-		textarea.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-			id!=attributes.id,
-			required,
-			name!=attributes.name,
-			spellcheck,
-			cols=30,
-			rows=10
-		) 
-	else
-		input.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
-			id!=attributes.id,
-			type!=attributes.type,
-			required,
-			name!=attributes.name,
-			value!=attributes.value
-		)
+		if (attributes.type==='textarea')
+			textarea.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+				id!=attributes.id,
+				required,
+				name!=attributes.name,
+				spellcheck,
+				cols=30,
+				rows=10
+			) #{ value }
+
+		else
+			input.rounded.border.bg-zinc-100.px-2.py-1.font-normal.shadow(
+				id!=attributes.id,
+				type!=attributes.type,
+				required,
+				name!=attributes.name,
+				value!=attributes.value
+			)
+
 		if errors && errors.find((err) => err.path===path)
 			i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path===path).msg } 
 

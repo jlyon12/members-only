@@ -28,15 +28,19 @@ router.post(
 	userController.upgrade_post
 );
 
+router.get('/messages', function (req, res, next) {
+	res.send('Messages not available');
+});
+
 router.get(
 	'/message/create',
 	authController.checkAuthenticated,
 	messageController.create_get
 );
-// router.post(
-// 	'/message/create',
-// 	authController.checkAuthenticated,
-// 	userController.upgrade_post
-// );
+router.post(
+	'/message/create',
+	authController.checkAuthenticated,
+	messageController.create_post
+);
 
 module.exports = router;

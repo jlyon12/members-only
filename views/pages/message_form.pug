@@ -4,7 +4,7 @@ include ../partials/mixins
 block content
 	main.grid.flex-1.place-content-center
 		form.m-8.grid.gap-8.rounded.border.bg-zinc-50.p-4.text-lg.shadow(
-			action='/login',
+			action='/message/create',
 			method='POST',
 			class='sm:max-w-sm md:max-w-md lg:max-w-xl'
 		)
@@ -14,9 +14,10 @@ block content
 				+form-control('Title',"title")#title(
 					for='title',
 					name='title',
-					type='title'
+					type='title',
+					value=message && message.title
 				)
-				+form-control('Content',"content")#content(
+				+form-control('Content',"content",message&&message.content)#content(
 					for='content',
 					name='content',
 					type='textarea'
