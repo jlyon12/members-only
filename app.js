@@ -2,11 +2,13 @@ require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
+const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const connectDB = require('./config/db.js');
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/router');
 
 const app = express();
 connectDB();
@@ -20,6 +22,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+require('./config/passport');
+app.use(
+	session({
+		secret: process.env.SECRET,
+		resave: false,
+		saveUninitialized: true,
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function (req, res, next) {
+	res.locals.currentUser = req.user;
+	next();
+});
 
 app.use('/', indexRouter);
 
