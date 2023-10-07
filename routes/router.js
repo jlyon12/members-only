@@ -11,6 +11,13 @@ router.get('/', function (req, res, next) {
 router.get('/signup', userController.signup_get);
 router.post('/signup', userController.signup_post);
 
+router.get(
+	'/member/request',
+	authController.checkAuthenticated,
+	userController.upgrade_get
+);
+// router.post('/signup', userController.signup_post);
+
 router.get('/login', authController.login_get);
 router.post('/login', authController.login_post);
 

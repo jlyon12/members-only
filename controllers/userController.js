@@ -74,3 +74,7 @@ exports.signup_post = [
 		}
 	}),
 ];
+
+exports.upgrade_get = asyncHandler(async (req, res, next) => {
+	res.render('upgrade_account', { title: 'Members Only | Upgrade' });
+});

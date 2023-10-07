@@ -10,6 +10,13 @@ exports.login_post = passport.authenticate('local', {
 	failureRedirect: '/',
 });
 
+exports.checkAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated()) {
+		return next();
+	}
+	res.redirect('/login');
+};
+
 exports.logout_get = asyncHandler(async (req, res, next) => {
 	req.logout((err) => {
 		if (err) {
