@@ -78,3 +78,25 @@ exports.signup_post = [
 exports.upgrade_get = asyncHandler(async (req, res, next) => {
 	res.render('upgrade_account', { title: 'Members Only | Upgrade' });
 });
+
+exports.upgrade_post = [
+	body('password')
+		.trim()
+		.escape()
+		.matches(process.env.CLUB_SECRET_KEY)
+		.withMessage('Invalid secret key'),
+	asyncHandler(async (req, res, next) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			res.render('upgrade_account', {
+				title: 'Members Only | Upgrade',
+				errors: errors.array(),
+			});
+		} else {
+			const user = await User.findById(req.user.id);
+			user.is_member = true;
+			user.save();
+			res.redirect('/');
+		}
+	}),
+];

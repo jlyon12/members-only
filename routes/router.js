@@ -16,7 +16,11 @@ router.get(
 	authController.checkAuthenticated,
 	userController.upgrade_get
 );
-// router.post('/signup', userController.signup_post);
+router.post(
+	'/member/request',
+	authController.checkAuthenticated,
+	userController.upgrade_post
+);
 
 router.get('/login', authController.login_get);
 router.post('/login', authController.login_post);
