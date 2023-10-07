@@ -76,7 +76,7 @@ exports.signup_post = [
 ];
 
 exports.upgrade_get = asyncHandler(async (req, res, next) => {
-	res.render('upgrade_account', { title: 'Members Only | Upgrade' });
+	res.render('user_member', { title: 'Members Only | Upgrade' });
 });
 
 exports.upgrade_post = [
@@ -88,7 +88,7 @@ exports.upgrade_post = [
 	asyncHandler(async (req, res, next) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			res.render('upgrade_account', {
+			res.render('user_member', {
 				title: 'Members Only | Upgrade',
 				errors: errors.array(),
 			});
@@ -102,7 +102,7 @@ exports.upgrade_post = [
 ];
 
 exports.admin_get = asyncHandler(async (req, res, next) => {
-	res.render('upgrade_admin', { title: 'Members Only | Admin' });
+	res.render('user_admin', { title: 'Members Only | Admin' });
 });
 
 exports.admin_post = [
@@ -114,7 +114,7 @@ exports.admin_post = [
 	asyncHandler(async (req, res, next) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			res.render('upgrade_admin', {
+			res.render('user_admin', {
 				title: 'Members Only | Admin',
 				errors: errors.array(),
 			});

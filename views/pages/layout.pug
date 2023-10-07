@@ -38,12 +38,12 @@ html
 								li.inline-flex.rounded.py-2.text-right(
 									class='hover:bg-zinc-300 hover:font-semibold'
 								)
-									a.flex-1.px-2(href='/member/request') Upgrade Membership
+									a.flex-1.px-2(href='/user/member') Upgrade Membership
 							if !currentUser.is_admin && currentUser.is_member
 								li.inline-flex.rounded.py-2.text-right(
 									class='hover:bg-zinc-300 hover:font-semibold'
 								)
-									a.flex-1.px-2(href='/admin/request') Request Admin
+									a.flex-1.px-2(href='/user/admin') Request Admin
 							li.inline-flex.rounded.py-2.text-right(
 								class='hover:bg-zinc-300 hover:font-semibold'
 							)

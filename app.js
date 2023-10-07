@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const connectDB = require('./config/db.js');
-const indexRouter = require('./routes/router');
+const routes = require('./config/router.js');
 
 const app = express();
 connectDB();
@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
 	next();
 });
 
-app.use('/', indexRouter);
+app.use('', routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

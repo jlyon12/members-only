@@ -4,11 +4,11 @@ include ../partials/mixins
 block content
 	main.grid.flex-1.place-content-center
 		form.m-8.grid.gap-8.rounded.border.bg-zinc-50.p-4.text-lg.shadow(
-			action='/admin/request',
+			action='/user/member',
 			method='POST',
 			class='sm:max-w-sm md:max-w-md lg:max-w-xl'
 		)
-			h2.text-2xl.font-bold Request Admin Access
+			h2.text-2xl.font-bold Request Club Access
 			hr
 			fieldset.grid.gap-4
 				+form-control('Club Secret',"password")#password(
@@ -18,7 +18,7 @@ block content
 				)
 
 			if errors
-				i.mx-auto.text-rose-500 Admin not granted
+				i.mx-auto.text-rose-500 Access Denied
 			button.mx-auto.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(
 				class='hover:bg-zinc-300 hover:font-semibold focus:bg-zinc-300 focus:font-semibold active:bg-zinc-300 active:font-semibold'
 			) Request
