@@ -1,0 +1,9 @@
+extends layout
+include ../partials/mixins
+block content
+	main.grid.flex-1.place-content-center.gap-8.text-center
+		h2.text-2xl.font-bold Success! Account Created
+		hr
+		p.font-bold Log in to your account to post your first message
+		hr
+		+nav-link('/login','Log in').mx-auto

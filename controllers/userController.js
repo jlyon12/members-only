@@ -70,7 +70,7 @@ exports.signup_post = [
 			});
 		} else {
 			await user.save();
-			res.redirect('/');
+			res.render('signup_confirm');
 		}
 	}),
 ];
