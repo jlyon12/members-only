@@ -1,16 +1,16 @@
 extends layout
 block content
-	main.grid.flex-1.place-content-center.gap-8.text-center
+	main.text-md.grid.flex-1.place-content-center.gap-8.text-center(class='md:text-lg')
 		h2.text-2xl.font-bold Club Rules
 		hr
-		.grid.gap-4
+		.grid.gap-4.p-4
 			p.font-bold Anyone
-				span.block.text-sm.font-normal Can view messages
+				span.block.font-normal Can view messages
 			p.font-bold.text-orange-600 Users
-				span.block.text-sm.font-normal.text-slate-900 Can post messages
+				span.block.font-normal.text-slate-900 Can post messages
 			p.font-bold.text-green-600 Club Members
-				span.block.text-sm.font-normal.text-slate-900 Can view message details
+				span.block.font-normal.text-slate-900 Can view message details
 			p.font-bold.text-indigo-600 Admin
-				span.block.text-sm.font-normal.text-slate-900 Can view message details and delete messages
+				span.block.font-normal.text-slate-900 Can view message details and delete messages
 		hr
 		+btn-link('/messages','View Messages').mx-auto
