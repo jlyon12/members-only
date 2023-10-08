@@ -1,0 +1,35 @@
+.relative
+	button#profileToggle.inline-flex.items-center.gap-2.rounded-full
+		p(class='hover:underline') Hi, #{ currentUser.first_name }
+		.flex.overflow-hidden.rounded-full
+			img.aspect-square.h-full.w-full(src='/images/profile_icon.svg', alt='')
+	#profileDropdown.right-0.mt-2.hidden.rounded-md.bg-zinc-200.shadow-lg(
+		class='top-[100%]'
+	)
+		.grid.gap-1.p-4.text-right
+			p.text-sm.font-bold #{ currentUser.full_name }
+			p.text-sm.font-light #{ currentUser.email }
+			if currentUser.is_member
+				p.text-sm.text-green-600 Club Member
+			else
+				p.text-sm.text-orange-500 Not a member
+			if currentUser.is_admin
+				p.text-sm.text-indigo-600 Admin
+		hr.mx-4.my-2.h-px.border.border-zinc-300
+		ul.mb-4.flex.w-60.flex-col.gap-1.px-2
+			li.inline-flex.rounded.py-2.text-right(
+				class='hover:bg-zinc-300 hover:font-semibold'
+			)
+				a.flex-1.px-2(href='/message/create') New Message
+			if !currentUser.is_member
+				li.inline-flex.rounded.py-2.text-right(
+					class='hover:bg-zinc-300 hover:font-semibold'
+				)
+					a.flex-1.px-2(href='/user/member') Join Club
+			if !currentUser.is_admin
+				li.inline-flex.rounded.py-2.text-right(
+					class='hover:bg-zinc-300 hover:font-semibold'
+				)
+					a.flex-1.px-2(href='/user/admin') Request Admin
+			li.inline-flex.rounded.py-2.text-right(class='hover:bg-zinc-300 hover:font-semibold')
+				a.flex-1.px-2(href='/logout') Logout
