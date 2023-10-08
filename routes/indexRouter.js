@@ -9,6 +9,10 @@ router.get('/', function (req, res, next) {
 	res.render('index', { title: 'Members Only | Home' });
 });
 
+router.get('/403', function (req, res, next) {
+	res.render('403', { title: 'Members Only | Denied' });
+});
+
 router.get('/login', authController.login_get);
 router.post('/login', authController.login_post);
 

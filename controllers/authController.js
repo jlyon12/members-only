@@ -21,7 +21,7 @@ exports.checkIsAdmin = asyncHandler(async (req, res, next) => {
 	if (req.user.is_admin) {
 		return next();
 	}
-	res.redirect('/');
+	res.redirect('/403');
 });
 
 exports.logout_get = asyncHandler(async (req, res, next) => {

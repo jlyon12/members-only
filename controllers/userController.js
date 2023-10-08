@@ -70,7 +70,7 @@ exports.signup_post = [
 			});
 		} else {
 			await user.save();
-			res.render('signup_confirm');
+			res.render('signup_confirm', { title: 'Members Only | Welcome' });
 		}
 	}),
 ];

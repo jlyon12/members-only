@@ -1,0 +1,9 @@
+extends layout
+include ../partials/mixins
+block content
+	main.grid.flex-1.place-content-center.gap-8.text-center
+		h2.text-2xl.font-bold.text-rose-500 Access Denied!
+		hr
+		p.font-bold You must be an admin to access this page.
+		hr
+		+nav-link('/user/admin','Request Admin Access').mx-auto

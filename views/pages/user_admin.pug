@@ -11,14 +11,14 @@ block content
 			h2.text-2xl.font-bold Request Admin Access
 			hr
 			fieldset.grid.gap-4
-				+form-control('Club Secret',"password")#password(
+				+form-control('Admin Key',"password")#password(
 					for='password',
 					name='password',
 					type='password'
 				)
 
 			if errors
-				i.mx-auto.text-rose-500 Admin not granted
+				i.mx-auto.text-rose-500 Not granted
 			button.mx-auto.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(
 				class='hover:bg-zinc-300 hover:font-semibold focus:bg-zinc-300 focus:font-semibold active:bg-zinc-300 active:font-semibold'
 			) Request
