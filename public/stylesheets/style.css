@@ -660,6 +660,9 @@ video {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 }
+.mb-2 {
+	margin-bottom: 0.5rem;
+}
 .mb-4 {
 	margin-bottom: 1rem;
 }
@@ -771,21 +774,24 @@ video {
 .h-8 {
 	height: 2rem;
 }
-.h-fit {
-	height: -moz-fit-content;
-	height: fit-content;
-}
 .h-full {
 	height: 100%;
 }
 .h-px {
 	height: 1px;
 }
+.h-fit {
+	height: -moz-fit-content;
+	height: fit-content;
+}
 .min-h-screen {
 	min-height: 100vh;
 }
 .w-60 {
 	width: 15rem;
+}
+.w-8 {
+	width: 2rem;
 }
 .w-fit {
 	width: -moz-fit-content;
@@ -1554,6 +1560,10 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgb(244 63 94 / var(--tw-bg-opacity));
 }
+.bg-slate-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
 .bg-zinc-100 {
 	--tw-bg-opacity: 1;
 	background-color: rgb(244 244 245 / var(--tw-bg-opacity));
@@ -1660,9 +1670,16 @@ video {
 .p-8 {
 	padding: 2rem;
 }
+.p-2 {
+	padding: 0.5rem;
+}
 .px-2 {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
+}
+.px-3 {
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -2243,15 +2260,15 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgb(212 212 216 / var(--tw-bg-opacity));
 }
+.hover\:bg-zinc-600:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgb(82 82 91 / var(--tw-bg-opacity));
+}
 .hover\:font-bold:hover {
 	font-weight: 700;
 }
 .hover\:font-semibold:hover {
 	font-weight: 600;
-}
-.hover\:text-zinc-50:hover {
-	--tw-text-opacity: 1;
-	color: rgb(250 250 250 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
 	text-decoration-line: underline;
@@ -2264,9 +2281,9 @@ video {
 	content: var(--tw-content);
 	text-align: center;
 }
-.focus\:bg-zinc-300:focus {
+.focus\:bg-zinc-600:focus {
 	--tw-bg-opacity: 1;
-	background-color: rgb(212 212 216 / var(--tw-bg-opacity));
+	background-color: rgb(82 82 91 / var(--tw-bg-opacity));
 }
 .focus\:font-semibold:focus {
 	font-weight: 600;
@@ -2277,9 +2294,9 @@ video {
 .hover\:focus\:text-center:focus:hover {
 	text-align: center;
 }
-.active\:bg-zinc-300:active {
+.active\:bg-zinc-600:active {
 	--tw-bg-opacity: 1;
-	background-color: rgb(212 212 216 / var(--tw-bg-opacity));
+	background-color: rgb(82 82 91 / var(--tw-bg-opacity));
 }
 .active\:font-semibold:active {
 	font-weight: 600;

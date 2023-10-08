@@ -8,19 +8,16 @@ block content
 				.flex.flex-col.items-center.gap-4
 					h2.text-2xl.font-bold There are no messages.
 					hr
-					+nav-link('/message/create','Create Message')
+					+btn-link('/message/create','Create Message')
 			each msg in messages
 				.grid.w-full.max-w-lg.gap-1.rounded.bg-zinc-100.p-4.shadow-md
-					h2.font-bold #{ msg.title }
+					h2.text-lg.font-bold #{ msg.title }
 
-					p.text-sm #{ msg.content }
+					p #{ msg.content }
 					hr
 					.flex.items-end.justify-between
 						if currentUser && currentUser.is_admin
-							a.inline-flex.h-fit.w-fit.rounded.bg-zinc-200.px-2.px-2.font-semibold.text-rose-500(
-								href=msg.url + 'delete',
-								class='hover:bg-rose-600 hover:text-zinc-50'
-							) Delete
+							+btn-link(msg.url + 'delete','Delete')
 						if currentUser && (currentUser.is_member || currentUser.is_admin)
 							.w-full
 								p.col-start-2.text-right.italic --#{ msg.sender.full_name }

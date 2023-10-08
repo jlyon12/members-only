@@ -22,9 +22,15 @@ mixin form-control(label,path,value)
 		if errors && errors.find((err) => err.path===path)
 			i.text-sm.font-light.text-rose-500 #{ errors.find((err) => err.path===path).msg } 
 
-mixin nav-link(href, title)
-	a.inline-flex.w-fit.rounded.bg-zinc-200.px-2.py-1.shadow(
-		class='hover:bg-zinc-300 hover:font-semibold focus:bg-zinc-300 focus:font-semibold active:bg-zinc-300 active:font-semibold',
+mixin btn-link(href, title)
+	a.inline-flex.h-fit.w-fit.rounded.bg-slate-900.px-4.py-2.font-semibold.text-zinc-50.shadow(
+		class='hover:bg-zinc-600 hover:font-semibold focus:bg-zinc-600 focus:font-semibold active:bg-zinc-600 active:font-semibold',
 		class!=attributes.class,
 		href=href
+	) #{ title }
+
+mixin btn(title)
+	button.inline-flex.h-fit.w-fit.rounded.bg-slate-900.px-4.py-2.font-semibold.text-zinc-50.shadow(
+		class='hover:bg-zinc-600 hover:font-semibold focus:bg-zinc-600 focus:font-semibold active:bg-zinc-600 active:font-semibold',
+		class!=attributes.class
 	) #{ title }
