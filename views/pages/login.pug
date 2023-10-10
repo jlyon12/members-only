@@ -2,11 +2,11 @@ extends layout
 include ../partials/mixins
 
 block content
-	main.grid.flex-1.place-content-center
+	main
 		form.m-8.grid.gap-4.rounded.border.bg-zinc-50.p-4.text-lg.shadow(
 			action='/login',
 			method='POST',
-			class='sm:max-w-sm md:max-w-md lg:max-w-xl'
+			class='sm:mx-auto sm:max-w-sm md:max-w-md lg:max-w-xl'
 		)
 			h2.text-2xl.font-bold Login
 			hr
