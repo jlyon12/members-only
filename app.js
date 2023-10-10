@@ -24,7 +24,18 @@ connectDB();
 
 // require production packages
 app.use(compression());
-app.use(helmet());
+app.use(
+	helmet({
+		contentSecurityPolicy: {
+			directives: {
+				defaultSrc: ["'self'"],
+				'script-src': ["'self'", "'unsafe-inline'"],
+				'connect-src': ["'self'"],
+			},
+		},
+	})
+);
+
 app.use(limiter);
 
 // view engine setup
@@ -43,6 +54,11 @@ app.use(
 		secret: process.env.SECRET,
 		resave: false,
 		saveUninitialized: true,
+		httpOnly: true,
+		secure: true,
+		domain: 'fly.dev',
+		path: '/',
+		expires: new Date(Date.now() + 60 * 60 * 1000),
 	})
 );
 app.use(passport.initialize());
