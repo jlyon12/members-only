@@ -15,7 +15,7 @@ To become a member of the secret club you will need to enter: 'ONEOFUS!' as the 
 
 ## Getting Started
 
-<a href="https://members-only.fly.dev" target="_blank"> Live Link </a> 👈🏻
+<a href="https://cool-brook-6416.fly.dev/" target="_blank"> Live Link </a> 👈🏻
 <br/>
 
 ## License

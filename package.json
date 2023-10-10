@@ -47,6 +47,7 @@
 		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
+		"@flydotio/dockerfile": "^0.4.10",
 		"@prettier/plugin-pug": "^3.0.0",
 		"eslint": "^8.50.0",
 		"eslint-config-prettier": "^9.0.0",
