@@ -2,12 +2,17 @@ const asyncHandler = require('express-async-handler');
 const passport = require('passport');
 
 exports.login_get = asyncHandler(async (req, res, next) => {
-	res.render('login', { title: 'Members Only | Log in' });
+	console.log(req.session.messages);
+	res.render('login', {
+		title: 'Members Only | Log in',
+		errors: req.session.messages,
+	});
 });
 
 exports.login_post = passport.authenticate('local', {
 	successRedirect: '/',
-	failureRedirect: '/',
+	failureRedirect: '/login',
+	failureMessage: true,
 });
 
 exports.checkAuthenticated = (req, res, next) => {
